@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.tuxpuckpepe</groupId>
+  <artifactId>springboot-rest-jersey</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>springboot-rest-jersey</name>
+  <url>http://maven.apache.org</url>
+  
+	<!-- Core starter, including auto-configuration support, logging and YAML -->
+	<!-- We don't need to specify dependencies's versions, it will be defined by spring-boot-starter-paren-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.0.RELEASE</version>
+	</parent>  
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+	<!-- Starter for building RESTful web applications using JAX-RS and Jersey. An alternative to spring-boot-starter-web -->
+  <dependencies>
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-jersey</artifactId>
+  	</dependency>
+  	
+  	<!-- Spring Boot Developer Tools -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-devtools</artifactId>
+  		<optional>true</optional>
+  	</dependency>
+  
+  	<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+	
+	<dependency>
+    		<groupId>org.jolokia</groupId>
+    		<artifactId>jolokia-core</artifactId>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+  </dependencies>
+  
+  	<build>
+		<plugins>
+			<!-- has two goals, Compile (src/main/resources) and test-compile (src/test/java)-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+			<!-- maybe It's not neccesary as we've already had the parent pom (spring-boot-starter-paren) -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
